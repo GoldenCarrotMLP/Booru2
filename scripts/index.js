@@ -10,12 +10,11 @@ var a = pic;
 
 function myFunction() {
   var tags = document.getElementById("tags").value;
-   var getTags= "tags="+ tags.replace(' ', '+') + "&limit=1";
+   var getTags= "tags="+ (tags.replaceAll(' ', '+')) + "&limit=1";
   fetch(url+getTags,{headers: new Headers({'Authorization': 'Basic '+btoa(auth)})})
   .then(response => response.json())
- // .then(data => console.log(data))
   .then(data => pic = data.posts[0].file.url);
-  
+  console.log(url+getTags)
 
     document.getElementById("button").src=pic;
 }
