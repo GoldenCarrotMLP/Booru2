@@ -9,7 +9,7 @@ var a = pic;
 
 
 function myFunction() {
-  var tags = document.getElementById("tags").value
+  var tags = document.getElementById("tags").value;
    var getTags= "tags="+ tags.replace(' ', '+') + "&limit=1";
   fetch(url+tags,{headers: new Headers({'Authorization': 'Basic '+btoa(auth)})})
   .then(response => response.json())
